@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="홈" />
+
+    <item
+        android:id="@+id/menu_learn"
+        android:icon="@drawable/ic_learn"
+        android:title="학습" />
+
+    <item
+        android:id="@+id/menu_record"
+        android:icon="@drawable/ic_record"
+        android:title="기록" />
+
+    <item
+        android:id="@+id/menu_rank"
+        android:icon="@drawable/ic_leaderboard"
+        android:title="랭크" />
+
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="설정" />
+</menu>
