@@ -69,7 +69,12 @@ public class PracticeActivity extends AppCompatActivity {
             q_id = cursor.getInt(0);
         }
         else{
-            cursor = sDB.rawQuery("SELECT q_id2 FROM Similarity WHERE q_id1 = "+ failedQ +" ORDER BY similarity DESC",null);
+            cursor = sDB.rawQuery("SELECT * " +
+                            "FROM (SELECT q_id2, sim FROM Similarity WHERE q_id1 = "+ failedQ +
+                                    " UNION " +
+                                    "SELECT q_id1, sim FROM Similarity WHERE q_id2 = "+ failedQ +")" +
+                            " ORDER BY sim DESC"
+                    ,null);
             cursor.moveToFirst();
             q_id = cursor.getInt(0);
         }
@@ -88,13 +93,13 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(correct_answer == 1){
-                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",0);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",q_id);
                     startActivity(intent);
@@ -106,13 +111,13 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(correct_answer == 1){
-                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",0);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",q_id);
                     startActivity(intent);
@@ -124,13 +129,13 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(correct_answer == 1){
-                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",0);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",q_id);
                     startActivity(intent);
@@ -142,13 +147,13 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(correct_answer == 1){
-                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "정답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",0);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "오답", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),PracticeActivity.class);
                     intent.putExtra("q_id",q_id);
                     startActivity(intent);
